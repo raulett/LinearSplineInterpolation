@@ -1,7 +1,7 @@
 #FIXME Сделать обработку ситуации, когда магнитка есть, а вариаций нет.
 import datetime
 
-from common.LinearSplineInterpolation.LinearSpline import *
+from .LinearSpline import LinearSpline
 
 
 class IncorrectSplineBordersException(Exception):

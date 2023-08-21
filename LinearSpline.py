@@ -57,10 +57,10 @@ class LinearSpline:
             middle = int((right_boarder + left_boarder) / 2)
             if prev_middle == middle:
                 if argument < self.get_function_domain(middle)[0]:
-                    middle -= 1
+                    middle -= 1 if middle > 0 else middle
                 if argument > self.get_function_domain(middle)[1]:
-                    middle += 1
-            if middle == 0: raise ImpossibleException("impossible exception")
+                    middle += 1 if middle < right_boarder else middle
+            if middle < 0 or middle > right_boarder: raise ImpossibleException("impossible exception")
             #print('argument: {}. current borders: {}, current middle {}'.format(argument, (self.get_function_domain(middle)[0], self.get_function_domain(middle)[1]), middle))
 
             if self.get_function_domain(middle)[0] <= argument <= self.get_function_domain(middle)[1]:
